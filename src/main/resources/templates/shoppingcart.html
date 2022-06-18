@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Shopping Cart</title>
+    <title>Your Shopping Cart</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
@@ -15,42 +15,8 @@
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <div class="container-fluid text-center">
-    <div><h1>Shopping Cart</h1></div>
+    <div><h1>Your Shopping Cart</h1></div>
 
-    <div class="container-fluid text-center space">
-        <a th:href="@{cart/add}">
-            <button type="submit" class="btn btn-primary">Add New Product</button>
-        </a>
-    </div>
-    <div>
-        <h3>Your Cart</h3>
-    </div>
-    <div>
-        <table class="table table-bordered">
-            <thead class="table-dark">
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Producer</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <th:block th:each="product : ${products}">
-                <tr>
-                    <td>[[${product.id}]]</td>
-                    <td>[[${product.title}]]</td>
-                    <td>[[${product.price}]]</td>
-                    <td>[[${product.producer}]]</td>
-                    <td>
-                        <a th:href="@{'products-administration/edit/' + ${product.id}}">Edit</a>
-                        <a th:href="@{'products-administration/delete/' + ${product.id}}">Delete</a>
-                    </td>
-                </tr>
-            </th:block>
-            </tbody>
-        </table>
         <div th:if="${message}" class="alert-success"> [[${message}]] </div>
     </div>
 
